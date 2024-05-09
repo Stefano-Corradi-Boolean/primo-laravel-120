@@ -15,19 +15,28 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function() {
 
+
+    // $data = [
+    //     'name' => 'Ugo', 
+    //     'lastname' => 'De Ughi'
+    // ];
+    // return view('home', $data);
+    
+
+
     $name = 'Ugo';
     $lastname = 'De Ughi';
+    $stampa_paragrafo = true;
+    $num1 = 8;
+    $num2 = 7;
+    $colori = ['giallo', 'rosso', 'verde', 'blu', 'viola'];
 
-    $data = [
-        'name' => 'Ugo', 
-        'lastname' => 'De Ughi'
-    ];
-    
     // compact crea un array con le chiavi/valori in base al nome della variabile (da passare senza $)
-    return view('home', compact('name', 'lastname'));
+    // i percorsi nelle sottocartelle delle view vengono rappresentati col punto
+    return view('home.index', compact('name', 'lastname', 'stampa_paragrafo', 'num1', 'num2', 'colori'));
 
 })->name('home');
 
-Route::get('/about', function() {
+Route::get('/chi-siamo', function() {
     return view('about');
 })->name('about');
